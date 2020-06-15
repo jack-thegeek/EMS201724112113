@@ -1,0 +1,8 @@
+﻿body {
+}
+
+@media only screen and (min-width: 1068px){
+    .mw-480 {
+        max-width: 420px;
+    }
+}

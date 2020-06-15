@@ -71,6 +71,7 @@
     <Content Include="App_Data\EMSdb_log.ldf">
       <DependentUpon>EMSdb.mdf</DependentUpon>
     </Content>
+    <Content Include="css\ems.css" />
     <Content Include="Global.asax" />
     <Content Include="css\bootstrap-grid.css" />
     <Content Include="css\bootstrap-grid.min.css" />
@@ -83,28 +84,36 @@
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-3.5.1.min.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Manage.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="header.Master.cs">
-      <DependentUpon>header.Master</DependentUpon>
+    <Compile Include="HeaderFooter.Master.cs">
+      <DependentUpon>HeaderFooter.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="header.Master.designer.cs">
-      <DependentUpon>header.Master</DependentUpon>
+    <Compile Include="HeaderFooter.Master.designer.cs">
+      <DependentUpon>HeaderFooter.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap-grid.css.map" />
@@ -117,7 +126,7 @@
     <Content Include="js\bootstrap.bundle.min.js.map" />
     <Content Include="js\bootstrap.js.map" />
     <Content Include="js\bootstrap.min.js.map" />
-    <Content Include="header.Master" />
+    <Content Include="HeaderFooter.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

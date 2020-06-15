@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace EMS201724112113
 {
-    public partial class header : System.Web.UI.MasterPage
+    public partial class Manage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
