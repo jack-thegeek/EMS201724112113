@@ -10,8 +10,7 @@ namespace EMS201724112113
     public partial class Manage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            
+        {  
             if (Session["username"] != null)
             {
                 if ((int)Session["isMgr"] == 1)
