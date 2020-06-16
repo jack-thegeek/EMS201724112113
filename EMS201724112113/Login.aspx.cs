@@ -10,8 +10,10 @@ namespace EMS201724112113
 {
     public partial class Login : System.Web.UI.Page
     {
-        private string user;
+        private string id;
         private string password;
+        private string username;
+        private int isMgr;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,36 +22,45 @@ namespace EMS201724112113
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            user = this.usr.Text;
+            id = this.empId.Text;
             password = this.pwd.Text;
-
-            if (CheckUser(user,password))
+            CheckUser(id, password);
+            if (username != null)
             {
-                Label1.Text = "正在登录..."; 
-
+                Label1.Text = "正在登录...";
+                //Label2.Text = name;
+                //session保存在服务端，后台管理系统使用session更安全
+                //把用户名和是否是管理员传递到管理页面
+                Session["username"] = username;
+                Session["isMgr"] = isMgr;
+                Response.Redirect("Manage.aspx");
             }
             else
             {
-                Label1.Text = "用户名或密码错误";
+                Label1.Text = "请检查工号或密码";
             }
         }
         //查询用户是否存在，存在返回1，不存在返回0
-        bool CheckUser(string user,string password)
+        void CheckUser(string id,string password)
         {
             String strConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename='|DataDirectory|\\EMSdb.mdf';";
             SqlConnection conn = new SqlConnection(strConn);
             //打开数据库连接
             conn.Open();
             //设定SQL叙述
-            string sql = string.Format("select * from employee where name = '{0}' and password = '{1}'",user,password);
+            string sql = string.Format("select name,isMgr from employee where empId = '{0}' and password = '{1}'",id,password);
             SqlCommand cmd = new SqlCommand(sql, conn);
-            //cmd.ExecuteScalar()，如果执行的SQL语句是一个查询语句（SELECT），则返回结果是查询后的第一行的第一列
-            //如果执行的SQL语句不是一个查询语句，则会返回一个未实例化的对象，必须通过类型转换来显示
-            if (cmd.ExecuteScalar() == null)
+            SqlDataReader dataReader;
+            dataReader = cmd.ExecuteReader();
+            if (dataReader.Read() == false)
             {
-                return false;
+                username = null;
             }
-            else { return true; }
+            else {
+                username = dataReader[0].ToString();
+                isMgr = dataReader.GetOrdinal("isMgr");
+
+            }
         }
 
     }

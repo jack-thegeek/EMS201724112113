@@ -20,9 +20,9 @@
                     <div class="card-header text-center"><h2>用户登录</h2></div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="usr">用户名:<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="请输入用户名" ControlToValidate="usr" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <label for="usr">工号:<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="请输入工号" ControlToValidate="empId" ForeColor="Red"></asp:RequiredFieldValidator>
                             </label>
-                            &nbsp;<asp:TextBox ID="usr" runat="server" class="form-control"></asp:TextBox>
+                            &nbsp;<asp:TextBox ID="empId" runat="server" class="form-control"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label for="pwd">密码:</label><label for="usr"><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="请输入密码" ControlToValidate="pwd" ForeColor="Red"></asp:RequiredFieldValidator>
