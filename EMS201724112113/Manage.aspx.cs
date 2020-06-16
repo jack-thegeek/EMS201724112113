@@ -9,25 +9,24 @@ namespace EMS201724112113
 {
     public partial class Manage : System.Web.UI.Page
     {
-        private string username;
-        private int isMg;
         protected void Page_Load(object sender, EventArgs e)
         {
-            isMg = Convert.ToInt32(Session["isMgr"]);
-            username = Session["username"].ToString();
             
-            if (username == null)
+            if (Session["username"] != null)
             {
-                Response.Redirect("Login.aspx");
-            }
-            else if (isMg == 1)
-            {
-                Label2.Text = username;
-                Label1.Text = "管理员";
+                if ((int)Session["isMgr"] == 1)
+                {
+                    Label2.Text = Session["username"].ToString();
+                    Label1.Text = "管理员";
+                }
+                else
+                {
+                    Label1.Text = "普通用户";
+                }
             }
             else
             {
-                Label1.Text = "普通用户";
+                Response.Redirect("Login.aspx");
             }
         }
     }
