@@ -11,7 +11,11 @@ namespace EMS201724112113
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if ((int)Session["isMgr"] == 0)//如果不是管理员，隐藏部分菜单
+            {
+                mgt_dept.Visible = false;
+                mgt_emp.Visible = false;
+            }
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)

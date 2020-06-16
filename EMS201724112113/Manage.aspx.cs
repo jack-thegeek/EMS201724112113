@@ -16,7 +16,6 @@ namespace EMS201724112113
             {
                 if ((int)Session["isMgr"] == 1)//如果是管理员
                 {
-                 
                     Label1.Text = "管理员";
                 }
                 else//如果不是管理员
