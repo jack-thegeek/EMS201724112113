@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace EMS201724112113
 {
-    public partial class HeaderFooter : System.Web.UI.MasterPage
+    public partial class Main : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

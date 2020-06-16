@@ -10,7 +10,7 @@
 namespace EMS201724112113 {
     
     
-    public partial class HeaderFooter {
+    public partial class Main {
         
         /// <summary>
         /// head 控件。

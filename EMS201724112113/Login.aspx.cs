@@ -27,7 +27,7 @@ namespace EMS201724112113
             CheckUser(id, password);
             if (username != null)
             {
-                Label1.Text = "正在登录...";
+                Label1.Text = isMgr.ToString();
                 //Label2.Text = name;
                 //session保存在服务端，后台管理系统使用session更安全
                 //把用户名和是否是管理员传递到管理页面
@@ -40,7 +40,7 @@ namespace EMS201724112113
                 Label1.Text = "请检查工号或密码";
             }
         }
-        //查询用户是否存在，存在返回1，不存在返回0
+        //查询用户是否存在
         void CheckUser(string id,string password)
         {
             String strConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename='|DataDirectory|\\EMSdb.mdf';";
@@ -58,7 +58,8 @@ namespace EMS201724112113
             }
             else {
                 username = dataReader[0].ToString();
-                isMgr = dataReader.GetOrdinal("isMgr");
+                isMgr = dataReader[1].ToString() == "True" ? 1 : 0;
+
 
             }
         }
