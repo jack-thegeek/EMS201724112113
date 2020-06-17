@@ -27,7 +27,7 @@
                         <a class="nav-link" href="/Manage_dept.aspx">部门管理</a>
                     </li>
                     <li class="nav-item" id="mgt_emp" runat="server">
-                        <a class="nav-link" href="#">人员管理</a>
+                        <a class="nav-link" href="/Manage_emp.aspx">人员管理</a>
                     </li>
                     <li class="nav-item">
                         <asp:LinkButton ID="LinkButton1" runat="server" class="nav-link" OnClick="LinkButton1_Click">退出登录</asp:LinkButton>

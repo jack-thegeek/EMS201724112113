@@ -1,9 +1,7 @@
 ﻿using EMS201724112113.Entity;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,10 +9,10 @@ using System.Web.UI.WebControls;
 
 namespace EMS201724112113
 {
-    public partial class Manage : System.Web.UI.Page
+    public partial class Manage_emp : System.Web.UI.Page
     {
-        public List<EqptEntity> eqptlist = new List<EqptEntity>();
-        String strConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename='|DataDirectory|\\EMSdb.mdf';";
+        public List<EmpEntity> emplist = new List<EmpEntity>();
+        private String strConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename='|DataDirectory|\\EMSdb.mdf';";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,10 +34,7 @@ namespace EMS201724112113
             }
 
             GetAll();
-
-            
         }
-
         void GetAll()
         {
             using (SqlConnection conn = new SqlConnection(strConn))//使用using的方式系统自动关闭连接
@@ -47,25 +42,24 @@ namespace EMS201724112113
                 //打开数据库连接
                 conn.Open();
                 //设定SQL叙述
-                string sql = string.Format("select * from equipment");
+                string sql = string.Format("select e.empId,e.password,e.name,e.phone,e.isMgr,d.deptName " +
+                    "from department d, employee e " +
+                    "where d.deptId = e.deptId");
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    EqptEntity eqptEntity = new EqptEntity();
+                    EmpEntity empEntity = new EmpEntity();
                     for (int i = 0; i < dr.FieldCount; i++)
                     {
-                        eqptEntity.EqptId = int.Parse(dr[].ToString());
-                        eqptEntity.EqptName = dr[].ToString();
-                        eqptEntity.Specifications = dr[].ToString();
-                        eqptEntity.Picture = dr[].ToString();
-                        eqptEntity.Price = dr[].ToString();
-                        eqptEntity.PurchaseDate = Convert.ToDateTime(dr[]).Year.ToString();
-                        eqptEntity.Location = dr[].ToString();
-                        eqptEntity.Mgr = dr[].ToString();
-                        eqptEntity.Num = int.Parse(dr[].ToString());
+                        empEntity.EmpId = int.Parse(dr[0].ToString());
+                        empEntity.Password = dr[1].ToString();
+                        empEntity.Name = dr[2].ToString();
+                        empEntity.Phone = dr[3].ToString();
+                        empEntity.IsMgr =  dr[4].ToString() == "True" ? "是" : "否";
+                        empEntity.Dept = dr[5].ToString();
                     }
-                    eqptlist.Add(eqptEntity);
+                    emplist.Add(empEntity);
                 }
             }
         }
