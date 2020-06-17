@@ -59,8 +59,6 @@ namespace EMS201724112113
             else {
                 username = dataReader[0].ToString();
                 isMgr = dataReader[1].ToString() == "True" ? 1 : 0;
-
-
             }
         }
 
