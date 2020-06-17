@@ -1,9 +1,7 @@
 ﻿using EMS201724112113.Entity;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,11 +9,10 @@ using System.Web.UI.WebControls;
 
 namespace EMS201724112113
 {
-    public partial class Manage : System.Web.UI.Page
+    public partial class Manage_dept : System.Web.UI.Page
     {
-        public List<EqptEntity> eqptlist = new List<EqptEntity>();
-        String strConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename='|DataDirectory|\\EMSdb.mdf';";
-
+        public List<DeptEntity> deptlist = new List<DeptEntity>();
+        private String strConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename='|DataDirectory|\\EMSdb.mdf';";
         protected void Page_Load(object sender, EventArgs e)
         {
             //通过session检查是否登录，未登录直接跳去登录页面
@@ -36,8 +33,6 @@ namespace EMS201724112113
             }
 
             GetAll();
-
-            
         }
 
         void GetAll()
@@ -47,25 +42,19 @@ namespace EMS201724112113
                 //打开数据库连接
                 conn.Open();
                 //设定SQL叙述
-                string sql = string.Format("select * from equipment");
+                string sql = string.Format("select d.deptId,d.deptName,e.name from department d, employee e where d.deptMgrId = e.empId");
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    EqptEntity eqptEntity = new EqptEntity();
+                    DeptEntity deptEntity = new DeptEntity();
                     for (int i = 0; i < dr.FieldCount; i++)
                     {
-                        eqptEntity.EqptId = int.Parse(dr["eqptId"].ToString());
-                        eqptEntity.EqptName = dr["eqptName"].ToString();
-                        eqptEntity.Specifications = dr["specifications"].ToString();
-                        eqptEntity.Picture = dr["picture"].ToString();
-                        eqptEntity.Price = dr["price"].ToString();
-                        eqptEntity.PurchaseDate = Convert.ToDateTime(dr["purchaseDate"]).Year.ToString();
-                        eqptEntity.Location = dr["location"].ToString();
-                        eqptEntity.MgrId = dr["mgrId"].ToString();
-                        eqptEntity.Num = dr["num"].ToString();
+                        deptEntity.DeptId = int.Parse(dr[0].ToString());
+                        deptEntity.DeptName = dr[1].ToString();
+                        deptEntity.DeptMgr = dr[2].ToString();
                     }
-                    eqptlist.Add(eqptEntity);
+                    deptlist.Add(deptEntity);
                 }
             }
         }

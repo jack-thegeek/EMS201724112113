@@ -86,9 +86,11 @@
     <Content Include="js\jquery-3.5.1.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="Manage.aspx" />
+    <Content Include="Manage_dept.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\DeptEntity.cs" />
     <Compile Include="Entity\EqptEntity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -113,6 +115,13 @@
     </Compile>
     <Compile Include="Manage.aspx.designer.cs">
       <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage_dept.aspx.cs">
+      <DependentUpon>Manage_dept.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage_dept.aspx.designer.cs">
+      <DependentUpon>Manage_dept.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
