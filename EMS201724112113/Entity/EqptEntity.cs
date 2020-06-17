@@ -14,7 +14,7 @@ namespace EMS201724112113.Entity
         public string Price { set; get; }
         public string PurchaseDate { set; get; }
         public string Location { set; get; }
-        public int Mgr { set; get; }
+        public string Mgr { set; get; }
         public int Num { set; get; }
     }
 }

@@ -7,14 +7,14 @@
         <table class="table table-bordered table-sm">
             <thead>
                 <tr>
-                    <th>设备编号</th>
+                    <th>编号</th>
                     <th>设备名称</th>
-                    <th>设备规格</th>
-                    <th>设备图片</th>
+                    <th>规格</th>
+                    <th>图片</th>
                     <th>价格</th>
                     <th>购入日期</th>
                     <th>存放位置</th>
-                    <th>设备负责人</th>
+                    <th>负责人</th>
                 </tr>
             </thead>
             <%for (int i = 0; i < eqptlist.Count; i++)
@@ -28,7 +28,7 @@
                     <td><%=eqptlist[i].Price%></td>
                     <td><%=eqptlist[i].PurchaseDate%></td>
                     <td><%=eqptlist[i].Location%></td>
-                    <td><%=eqptlist[i].MgrId%></td>
+                    <td><%=eqptlist[i].Mgr%></td>
                 </tr>
             </tbody>
             <%}%>

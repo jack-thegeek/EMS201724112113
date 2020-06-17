@@ -47,7 +47,10 @@ namespace EMS201724112113
                 //打开数据库连接
                 conn.Open();
                 //设定SQL叙述
-                string sql = string.Format("select * from equipment");
+                string sql = string.Format("select eq.eqptId,eq.eqptName,eq.specifications,eq.picture," +
+                    "eq.price,eq.PurchaseDate,eq.location,eq.num,em.name " +
+                    "from department d, employee em, equipment eq " +
+                    "where eq.mgrId = d.deptMgrId and d.deptMgrId = em.empId");
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -55,15 +58,15 @@ namespace EMS201724112113
                     EqptEntity eqptEntity = new EqptEntity();
                     for (int i = 0; i < dr.FieldCount; i++)
                     {
-                        eqptEntity.EqptId = int.Parse(dr[].ToString());
-                        eqptEntity.EqptName = dr[].ToString();
-                        eqptEntity.Specifications = dr[].ToString();
-                        eqptEntity.Picture = dr[].ToString();
-                        eqptEntity.Price = dr[].ToString();
-                        eqptEntity.PurchaseDate = Convert.ToDateTime(dr[]).Year.ToString();
-                        eqptEntity.Location = dr[].ToString();
-                        eqptEntity.Mgr = dr[].ToString();
-                        eqptEntity.Num = int.Parse(dr[].ToString());
+                        eqptEntity.EqptId = int.Parse(dr[0].ToString());
+                        eqptEntity.EqptName = dr[1].ToString();
+                        eqptEntity.Specifications = dr[2].ToString();
+                        eqptEntity.Picture = dr[3].ToString();
+                        eqptEntity.Price = dr[4].ToString();
+                        eqptEntity.PurchaseDate = Convert.ToDateTime(dr[5]).Year.ToString();
+                        eqptEntity.Location = dr[6].ToString();
+                        eqptEntity.Mgr = dr[8].ToString();
+                        eqptEntity.Num = int.Parse(dr[7].ToString());
                     }
                     eqptlist.Add(eqptEntity);
                 }
