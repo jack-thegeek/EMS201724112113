@@ -72,6 +72,9 @@
       <DependentUpon>EMSdb.mdf</DependentUpon>
     </Content>
     <Content Include="css\ems.css" />
+    <Content Include="Edit_department.aspx" />
+    <Content Include="Edit_employee.aspx" />
+    <Content Include="Edit_equipment.aspx" />
     <Content Include="Global.asax" />
     <Content Include="css\bootstrap-grid.css" />
     <Content Include="css\bootstrap-grid.min.css" />
@@ -96,6 +99,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Edit_department.aspx.cs">
+      <DependentUpon>Edit_department.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Edit_department.aspx.designer.cs">
+      <DependentUpon>Edit_department.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_employee.aspx.cs">
+      <DependentUpon>Edit_employee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Edit_employee.aspx.designer.cs">
+      <DependentUpon>Edit_employee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_equipment.aspx.cs">
+      <DependentUpon>Edit_equipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Edit_equipment.aspx.designer.cs">
+      <DependentUpon>Edit_equipment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Entity\DeptEntity.cs" />
     <Compile Include="Entity\EmpEntity.cs" />
     <Compile Include="Entity\EqptEntity.cs" />

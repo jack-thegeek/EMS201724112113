@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     <div class="container">
         <table class="table-responsive table-bordered table-sm table-hover table-condensed">
             <thead>
@@ -15,6 +15,8 @@
                     <th>购入日期</th>
                     <th>存放位置</th>
                     <th>负责人</th>
+                    <th>修改</th>
+                    <th>删除</th>
                 </tr>
             </thead>
             <%for (int i = 0; i < eqptlist.Count; i++)
@@ -29,6 +31,8 @@
                     <td><%=eqptlist[i].PurchaseDate%></td>
                     <td><%=eqptlist[i].Location%></td>
                     <td><%=eqptlist[i].Mgr%></td>
+                    <td><a href="Edit_equipment.aspx?id=<%=eqptlist[i].EqptId%>">修改</a></td>
+                    <td><a href="#">删除</a></td>
                 </tr>
             </tbody>
             <%}%>
