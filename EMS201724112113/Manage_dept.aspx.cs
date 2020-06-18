@@ -15,23 +15,6 @@ namespace EMS201724112113
         private String strConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename='|DataDirectory|\\EMSdb.mdf';";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //通过session检查是否登录，未登录直接跳去登录页面
-            if (Session["username"] != null)
-            {
-                if ((int)Session["isMgr"] == 1)//如果是管理员
-                {
-                    Label1.Text = "管理员";
-                }
-                else//如果不是管理员
-                {
-                    Label1.Text = "普通用户";
-                }
-            }
-            else
-            {
-                Response.Redirect("Login.aspx");
-            }
-
             GetAll();
         }
 

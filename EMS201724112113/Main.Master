@@ -34,6 +34,17 @@
                     </li>
                 </ul>
             </nav>
+            <nav class="navbar navbar-expand-sm bg-light navbar-light mb-4 p-3">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  欢迎回来，<asp:Label ID="Label1" runat="server"></asp:Label>
+                </li>
+                <li class="nav-item">
+                  &nbsp;&nbsp;账户权限：<asp:Label ID="Label2" runat="server"></asp:Label>
+                </li>
+              </ul>
+            </nav>
+
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
             <div class="jumbotron text-center" style="margin-bottom:0">

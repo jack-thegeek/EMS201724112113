@@ -2,11 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    用户权限 <asp:Label ID="Label1" runat="server"></asp:Label>
+    
     <div class="container">
-        <table class="table table-bordered table-sm">
+        <table class="table-responsive table-bordered table-sm table-hover table-condensed">
             <thead>
-                <tr>
+                <tr style="text-align: center;">
                     <th>编号</th>
                     <th>设备名称</th>
                     <th>规格</th>
@@ -19,12 +19,12 @@
             </thead>
             <%for (int i = 0; i < eqptlist.Count; i++)
             {%>
-            <tbody>
+            <tbody style="text-align: center;">
                 <tr>
                     <td><%=eqptlist[i].EqptId%></td>
                     <td><%=eqptlist[i].EqptName%></td>
-                    <td><%=eqptlist[i].Specifications%></td>
-                    <td><%=eqptlist[i].Picture%></td>
+                    <td style="width:30%;text-align:left;"><%=eqptlist[i].Specifications%></td>
+                    <td style="max-width:90px"><img src="images/<%=eqptlist[i].Picture%>.jpg" style="width:50%"/></td>
                     <td><%=eqptlist[i].Price%></td>
                     <td><%=eqptlist[i].PurchaseDate%></td>
                     <td><%=eqptlist[i].Location%></td>

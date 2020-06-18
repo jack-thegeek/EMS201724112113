@@ -25,6 +25,7 @@ namespace EMS201724112113
             id = this.empId.Text;
             password = this.pwd.Text;
             CheckUser(id, password);
+
             if (username != null)
             {
                 Label1.Text = isMgr.ToString();

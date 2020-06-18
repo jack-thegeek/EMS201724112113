@@ -36,7 +36,6 @@
                 </div>
             </div>
         </div>
-        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
     </form>
 </body>
 
