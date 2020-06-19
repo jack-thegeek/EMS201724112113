@@ -52,6 +52,9 @@ namespace EMS201724112113
             }
         }
 
-        
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CreatEqpt.aspx");
+        }
     }
 }

@@ -3,6 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
+        <asp:Button ID="Button1" runat="server" Text="新增设备" class="btn-sm btn-primary" OnClick="Button1_Click"/>
         <table class="table-responsive table-bordered table-sm table-hover table-condensed">
             <thead>
                 <tr style="text-align: center;">
