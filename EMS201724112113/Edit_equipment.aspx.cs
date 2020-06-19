@@ -41,7 +41,7 @@ namespace EMS201724112113
                 string sql = string.Format("select eq.eqptId,eq.eqptName,eq.specifications,eq.picture," +
                     "eq.price,eq.PurchaseDate,eq.location,eq.num,em.name " +
                     "from department d, employee em, equipment eq " +
-                    "where eq.mgrId = d.deptMgrId and d.deptMgrId = em.empId");
+                    "where eq.mgrId = d.deptMgrId and d.deptMgrId = em.empId and eqptId = {0}",id);
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
