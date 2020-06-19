@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
           <label for="TextBox3">图片:</label>
-            <asp:TextBox ID="TextBox3" runat="server" class="form-control"></asp:TextBox>
+            
         </div>
         <div class="form-group">
           <label for="TextBox4">价格:</label>
@@ -31,10 +31,13 @@
         </div>
         <div class="form-group">
           <label for="TextBox7">负责人:</label>
-            <asp:TextBox ID="TextBox7" runat="server" class="form-control"></asp:TextBox>
+            <asp:TextBox ID="TextBox7" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
+            <asp:DropDownList class="dropdown" ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="empId"></asp:DropDownList>
+            <asp:SqlDataSource  ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT distinct em.empId, em.name FROM department AS d INNER JOIN equipment AS eq ON d.deptMgrId = eq.mgrId INNER JOIN employee AS em ON d.deptMgrId = em.empId"></asp:SqlDataSource>
         </div>
         <div class="form-group">
-          <label for="TextBox8">数量:</label>&nbsp;<asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox8" ErrorMessage="请输入正确数量" MaximumValue="999" MinimumValue="1"></asp:RangeValidator>
+          <label for="TextBox8">数量:</label>&nbsp;
+            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox8" ErrorMessage="请输入正确数量" MaximumValue="999" MinimumValue="1"></asp:RangeValidator>
             <asp:TextBox ID="TextBox8" runat="server" class="form-control"></asp:TextBox>
         </div>
         <asp:Button ID="Button1" runat="server" Text="保存" class="btn btn-info" OnClick="Button1_Click"/>

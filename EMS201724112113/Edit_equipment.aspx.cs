@@ -29,7 +29,7 @@ namespace EMS201724112113
                     TextBox4.Text = eqptEntity.Price;
                     TextBox5.Text = eqptEntity.PurchaseDate;
                     TextBox6.Text = eqptEntity.Location;
-                    TextBox7.Text = eqptEntity.Mgr;
+                    TextBox7.Text = "原负责人："+eqptEntity.Mgr;
                     TextBox8.Text = eqptEntity.Num.ToString();
                 }
             }
@@ -78,7 +78,7 @@ namespace EMS201724112113
                 conn.Open();
                 string sql = string.Format("update equipment set eqptName = N'{0}',specifications = N'{1}'," +
                     "price = '{2}',PurchaseDate = '{3}',location = N'{4}', mgrId = '{5}', num = '{6}' where eqptId = '{7}';", 
-                    TextBox1.Text, TextArea1.Value, TextBox4.Text,TextBox5.Text, TextBox6.Text, TextBox7.Text, TextBox8.Text,id);
+                    TextBox1.Text, TextArea1.Value, TextBox4.Text,TextBox5.Text, TextBox6.Text, DropDownList1.SelectedValue, TextBox8.Text,id);
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 Label1.Text = sql;
                 if (cmd.ExecuteNonQuery() == 0)
