@@ -21,8 +21,9 @@
             <asp:TextBox ID="TextBox4" runat="server" class="form-control"></asp:TextBox>
         </div>
         <div class="form-group">
-          <label for="TextBox5">购入日期:</label>
-            <asp:TextBox ID="TextBox5" runat="server" class="form-control"></asp:TextBox>
+          <label for="TextBox5">购入年份:<asp:RangeValidator ID="RangeValidator2" runat="server" ErrorMessage="请输入正确年份" MinimumValue="1990" MaximumValue="2099" ControlToValidate="TextBox5"></asp:RangeValidator>
+            </label>
+&nbsp;<asp:TextBox ID="TextBox5" runat="server" class="form-control"></asp:TextBox>
         </div>
         <div class="form-group">
           <label for="TextBox6">存放位置:</label>
@@ -33,7 +34,7 @@
             <asp:TextBox ID="TextBox7" runat="server" class="form-control"></asp:TextBox>
         </div>
         <div class="form-group">
-          <label for="TextBox8">数量:</label>
+          <label for="TextBox8">数量:</label>&nbsp;<asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox8" ErrorMessage="请输入正确数量" MaximumValue="999" MinimumValue="1"></asp:RangeValidator>
             <asp:TextBox ID="TextBox8" runat="server" class="form-control"></asp:TextBox>
         </div>
         <asp:Button ID="Button1" runat="server" Text="保存" class="btn btn-info" OnClick="Button1_Click"/>

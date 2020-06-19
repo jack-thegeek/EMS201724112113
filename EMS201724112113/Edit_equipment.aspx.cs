@@ -16,6 +16,7 @@ namespace EMS201724112113
         public EqptEntity eqptEntity = new EqptEntity();
         protected void Page_Load(object sender, EventArgs e)
         {
+            UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
             if ((int)Session["isMgr"] == 1)
             {
                 id = Request.QueryString["id"];
@@ -75,8 +76,8 @@ namespace EMS201724112113
             using (SqlConnection conn = new SqlConnection(strConn))//使用using的方式系统自动关闭连接
             {
                 conn.Open();
-                string sql = string.Format("update equipment set eqptName = {0},specifications = {1}," +
-                    "price = {2},PurchaseDate = '{3}',location = {4}, mgrId = {5}, num = {6} where eqptId = {7}", 
+                string sql = string.Format("update equipment set eqptName = N'{0}',specifications = N'{1}'," +
+                    "price = '{2}',PurchaseDate = '{3}',location = N'{4}', mgrId = '{5}', num = '{6}' where eqptId = '{7}';", 
                     TextBox1.Text, TextArea1.Value, TextBox4.Text,TextBox5.Text, TextBox6.Text, TextBox7.Text, TextBox8.Text,id);
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 Label1.Text = sql;

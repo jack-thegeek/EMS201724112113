@@ -19,7 +19,6 @@ namespace EMS201724112113
         protected void Page_Load(object sender, EventArgs e)
         {
             GetAll();
-
         }
 
         void GetAll()
