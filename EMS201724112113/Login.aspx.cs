@@ -46,9 +46,7 @@ namespace EMS201724112113
         {
             String strConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename='|DataDirectory|\\EMSdb.mdf';";
             SqlConnection conn = new SqlConnection(strConn);
-            //打开数据库连接
             conn.Open();
-            //设定SQL叙述
             string sql = string.Format("select name,isMgr from employee where empId = '{0}' and password = '{1}'",id,password);
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataReader dataReader;

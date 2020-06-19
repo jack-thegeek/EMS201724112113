@@ -18,17 +18,19 @@ namespace EMS201724112113
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (IsPostBack)//如果不是第一次访问该页
+            {
+                Label1.Text = Session["message"].ToString();
+            }
             GetAll();
+
         }
 
         void GetAll()
         {
-            using (SqlConnection conn = new SqlConnection(strConn))//使用using的方式系统自动关闭连接
+            using (SqlConnection conn = new SqlConnection(strConn))
             {
-                //打开数据库连接
                 conn.Open();
-                //设定SQL叙述
                 string sql = string.Format("select eq.eqptId,eq.eqptName,eq.specifications,eq.picture," +
                     "eq.price,eq.PurchaseDate,eq.location,eq.num,em.name " +
                     "from department d, employee em, equipment eq " +

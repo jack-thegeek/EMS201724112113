@@ -72,6 +72,7 @@
       <DependentUpon>EMSdb.mdf</DependentUpon>
     </Content>
     <Content Include="css\ems.css" />
+    <Content Include="Del.aspx" />
     <Content Include="Edit_department.aspx" />
     <Content Include="Edit_employee.aspx" />
     <Content Include="Edit_equipment.aspx" />
@@ -99,6 +100,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Del.aspx.cs">
+      <DependentUpon>Del.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Del.aspx.designer.cs">
+      <DependentUpon>Del.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Edit_department.aspx.cs">
       <DependentUpon>Edit_department.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
