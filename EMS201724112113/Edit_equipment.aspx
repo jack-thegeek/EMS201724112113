@@ -13,8 +13,12 @@
             <textarea id="TextArea1" cols="60" rows="5" runat="server" class="form-control"></textarea>
         </div>
         <div class="form-group">
-          <label for="TextBox3">图片:</label>
-            
+          <label for="">图片:</label>
+            <div>
+                <asp:FileUpload ID="FileUpload1" runat="server" class="form-control"/>
+                <asp:Label ID="lbl" runat="server" Text=""></asp:Label>
+                <asp:Button ID="Button2" runat="server" Text="上传" OnClick="Button2_Click" class="btn-sm btn-primary"/>
+            </div>
         </div>
         <div class="form-group">
           <label for="TextBox4">价格:</label>

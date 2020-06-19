@@ -25,11 +25,11 @@ namespace EMS201724112113
                 {
                     TextBox1.Text = eqptEntity.EqptName;
                     TextArea1.Value = eqptEntity.Specifications;
-                    TextBox3.Text = eqptEntity.Picture;
+                    
                     TextBox4.Text = eqptEntity.Price;
                     TextBox5.Text = eqptEntity.PurchaseDate;
                     TextBox6.Text = eqptEntity.Location;
-                    TextBox7.Text = "原负责人："+eqptEntity.Mgr;
+                    TextBox7.Text = "原负责人：" + eqptEntity.Mgr;
                     TextBox8.Text = eqptEntity.Num.ToString();
                 }
             }
@@ -37,7 +37,7 @@ namespace EMS201724112113
             {
                 Response.Redirect("Manage.aspx");
             }
-            
+
         }
 
         void GetEqpt()
@@ -50,7 +50,7 @@ namespace EMS201724112113
                 string sql = string.Format("select eq.eqptId,eq.eqptName,eq.specifications,eq.picture," +
                     "eq.price,eq.PurchaseDate,eq.location,eq.num,em.name " +
                     "from department d, employee em, equipment eq " +
-                    "where eq.mgrId = d.deptMgrId and d.deptMgrId = em.empId and eqptId = {0}",id);
+                    "where eq.mgrId = d.deptMgrId and d.deptMgrId = em.empId and eqptId = {0}", id);
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -77,8 +77,8 @@ namespace EMS201724112113
             {
                 conn.Open();
                 string sql = string.Format("update equipment set eqptName = N'{0}',specifications = N'{1}'," +
-                    "price = '{2}',PurchaseDate = '{3}',location = N'{4}', mgrId = '{5}', num = '{6}' where eqptId = '{7}';", 
-                    TextBox1.Text, TextArea1.Value, TextBox4.Text,TextBox5.Text, TextBox6.Text, DropDownList1.SelectedValue, TextBox8.Text,id);
+                    "price = '{2}',PurchaseDate = '{3}',location = N'{4}', mgrId = '{5}', num = '{6}' where eqptId = '{7}';",
+                    TextBox1.Text, TextArea1.Value, TextBox4.Text, TextBox5.Text, TextBox6.Text, DropDownList1.SelectedValue, TextBox8.Text, id);
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 Label1.Text = sql;
                 if (cmd.ExecuteNonQuery() == 0)
@@ -88,6 +88,43 @@ namespace EMS201724112113
                 else
                 {
                     Label1.Text = "成功！";
+                }
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            bool bok = false;//默认为false
+            string path = Server.MapPath("/images/");//储存文件夹路径
+            if (this.FileUpload1.HasFile)//检测是否有上传文件
+            {
+                string file = System.IO.Path.GetExtension(this.FileUpload1.FileName).ToLower();//获取文件夹下的文件路径
+                string[] allow = new string[] { ".png", ".jpg", ".gif", ".bmp", ".jpeg" };//后缀名数组
+
+
+                foreach (string s in allow)//读取后缀名数组
+                {
+                    if (s == file) //如果符合数组里的类型
+                    {
+                        bok = true;//bool值为true
+                    }
+                }
+
+                if (bok)//如果为true
+                {
+                    try
+                    {
+                        this.FileUpload1.PostedFile.SaveAs(path + id+".jpg");//上传文件
+                        this.lbl.Text = "文件" + FileUpload1.FileName + "上传成功!";
+                    }
+                    catch (Exception ex)
+                    {
+                        this.lbl.Text = "文件上传失败!" + ex.Message;
+                    }
+                }
+                else
+                {
+                    this.lbl.Text = "上传的图片格式不正确：只能上传.png,jpg,.gif,.bmp,.jpeg";
                 }
             }
         }
