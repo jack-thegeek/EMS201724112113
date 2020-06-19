@@ -27,7 +27,6 @@ namespace EMS201724112113
                             SqlCommand cmd = new SqlCommand(sql, conn);
                             if (cmd.ExecuteNonQuery() == 0)
                             {
-                                Session["message"] = "删除失败";
                             }
                             else
                             {
@@ -39,7 +38,6 @@ namespace EMS201724112113
             }
             else
             {
-                Session["message"] = "无权执行编辑与删除";
                 Response.Redirect("Manage.aspx");
             }
         }

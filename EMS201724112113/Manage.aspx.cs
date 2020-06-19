@@ -18,10 +18,6 @@ namespace EMS201724112113
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)//如果不是第一次访问该页
-            {
-                Label1.Text = Session["message"].ToString();
-            }
             GetAll();
 
         }

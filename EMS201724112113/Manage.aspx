@@ -3,7 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
-    <asp:Label ID="Label1" runat="server"></asp:Label>
         <table class="table-responsive table-bordered table-sm table-hover table-condensed">
             <thead>
                 <tr style="text-align: center;">

@@ -16,19 +16,27 @@ namespace EMS201724112113
         public EqptEntity eqptEntity = new EqptEntity();
         protected void Page_Load(object sender, EventArgs e)
         {
-            id = Request.QueryString["id"];
-            GetEqpt();
-            if (!IsPostBack)
-            {  
-                TextBox1.Text = eqptEntity.EqptName;
-                TextArea1.Value = eqptEntity.Specifications;
-                TextBox3.Text = eqptEntity.Picture;
-                TextBox4.Text = eqptEntity.Price;
-                TextBox5.Text = eqptEntity.PurchaseDate;
-                TextBox6.Text = eqptEntity.Location;
-                TextBox7.Text = eqptEntity.Mgr;
-                TextBox8.Text = eqptEntity.Num.ToString();
+            if ((int)Session["isMgr"] == 1)
+            {
+                id = Request.QueryString["id"];
+                GetEqpt();
+                if (!IsPostBack)
+                {
+                    TextBox1.Text = eqptEntity.EqptName;
+                    TextArea1.Value = eqptEntity.Specifications;
+                    TextBox3.Text = eqptEntity.Picture;
+                    TextBox4.Text = eqptEntity.Price;
+                    TextBox5.Text = eqptEntity.PurchaseDate;
+                    TextBox6.Text = eqptEntity.Location;
+                    TextBox7.Text = eqptEntity.Mgr;
+                    TextBox8.Text = eqptEntity.Num.ToString();
+                }
             }
+            else
+            {
+                Response.Redirect("Manage.aspx");
+            }
+            
         }
 
         void GetEqpt()

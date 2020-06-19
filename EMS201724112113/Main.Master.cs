@@ -23,7 +23,7 @@ namespace EMS201724112113
                 {
                     mgt_dept.Visible = false;
                     mgt_emp.Visible = false;
-                    Label2.Text = "普通用户";
+                    Label2.Text = "普通用户（只读权限）";
                 }
             }
             else
