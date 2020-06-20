@@ -18,8 +18,6 @@ namespace EMS201724112113
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-            
-            Label2.Text = picture;
         }
         protected void Button1_Click1(object sender, EventArgs e)
         {
@@ -77,11 +75,11 @@ namespace EMS201724112113
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 if (cmd.ExecuteNonQuery() != 0)
                 {
-                    Label2.Text = "插入成功";
+                    Label3.Text = "新建成功";
                 }
                 else
                 {
-                    Label2.Text = "插入失败";
+                    Label3.Text = "新建失败";
                 }
             }
         }

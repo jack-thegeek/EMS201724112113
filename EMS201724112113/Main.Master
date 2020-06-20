@@ -11,15 +11,26 @@
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
+        
     </asp:ContentPlaceHolder>
+    <script>
+        $(document).ready(function(){
 
+            $('select').addClass("form-control");
+
+        });
+    </script>
 </head>
 
 <body>
     <form id="form1" runat="server">
         <div>
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-                <ul class="navbar-nav">
+                <button class="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		            <span class="navbar-toggler-icon"></span>
+		        </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
                     <li class="nav-item active" id="mgt_eqpt" runat="server">
                         <a class="nav-link" href="/Manage.aspx">设备管理</a>
                     </li>
@@ -33,14 +44,16 @@
                         <asp:LinkButton ID="LinkButton1" runat="server" class="nav-link" OnClick="LinkButton1_Click">退出登录</asp:LinkButton>
                     </li>
                 </ul>
+                </div>
+                
             </nav>
             <nav class="navbar navbar-expand-sm bg-light navbar-light mb-4 p-3">
               <ul class="navbar-nav">
-                <li class="nav-item">
+                <li class="nav-item pl-2">
                   欢迎回来，<asp:Label ID="Label1" runat="server"></asp:Label>
                 </li>
-                <li class="nav-item">
-                  &nbsp;&nbsp;账户权限：<asp:Label ID="Label2" runat="server"></asp:Label>
+                <li class="nav-item pl-2">
+                  账户权限：<asp:Label ID="Label2" runat="server"></asp:Label>
                 </li>
               </ul>
             </nav>

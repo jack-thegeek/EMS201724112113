@@ -1,9 +1,7 @@
 ﻿using EMS201724112113.Entity;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,17 +9,19 @@ using System.Web.UI.WebControls;
 
 namespace EMS201724112113
 {
-    public partial class Manage : System.Web.UI.Page
+    public partial class SearchResult : System.Web.UI.Page
     {
         public List<EqptEntity> eqptlist = new List<EqptEntity>();
         String strConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename='|DataDirectory|\\EMSdb.mdf';";
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetAll();
+            string accord = Request["accord"];
+            string key = Request["key"];
+            Label1.Text = "搜索" + key + "的结果：";
+            GetAll(accord,key);
         }
 
-        void GetAll()
+        void GetAll(string accord,string key)
         {
             using (SqlConnection conn = new SqlConnection(strConn))
             {
@@ -29,7 +29,8 @@ namespace EMS201724112113
                 string sql = string.Format("select distinct eq.eqptId,eq.eqptName,eq.specifications,eq.picture," +
                     "eq.price,eq.PurchaseDate,eq.location,eq.num,em.name " +
                     "from department d, employee em, equipment eq " +
-                    "where eq.mgrId = d.deptMgrId and d.deptMgrId = em.empId");
+                    "where eq.mgrId = d.deptMgrId and d.deptMgrId = em.empId " +
+                    "and {0} like N'%{1}%';", accord, key);
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -50,18 +51,6 @@ namespace EMS201724112113
                     eqptlist.Add(eqptEntity);
                 }
             }
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("CreatEqpt.aspx");
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            string accord = DropDownList1.SelectedValue;
-            string key = TextBox1.Text;
-            Response.Redirect("SearchResult.aspx?accord=" + accord + "&key=" + key);
         }
     }
 }

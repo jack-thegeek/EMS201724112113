@@ -3,7 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container mw-480">
-        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
         <div class="form-group">
           <label for="TextBox1">设备名称:</label>
             <asp:TextBox ID="TextBox1" runat="server" class="form-control"></asp:TextBox>
@@ -43,7 +42,7 @@
             <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox8" ErrorMessage="请输入正确数量" MaximumValue="999" MinimumValue="1"></asp:RangeValidator>
             <asp:TextBox ID="TextBox8" runat="server" class="form-control"></asp:TextBox>
         </div>
-        <asp:Label ID="Label1" runat="server"></asp:Label>
-        <asp:Button ID="Button2" runat="server" Text="新建设备" OnClick="Button2_Click" />
+        <asp:Button ID="Button2" runat="server" Text="新建设备" OnClick="Button2_Click" class="btn-sm btn-primary"/>
+        <asp:Label ID="Label3" runat="server"></asp:Label>
     </div>
 </asp:Content>

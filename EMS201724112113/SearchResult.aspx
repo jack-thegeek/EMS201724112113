@@ -1,29 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="EMS201724112113.Manage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="SearchResult.aspx.cs" Inherits="EMS201724112113.SearchResult" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container mw-480 mb-4">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <asp:Button ID="Button1" runat="server" Text="新增设备" class="btn-sm btn-primary" OnClick="Button1_Click"/>
-            </div>
-            <div class="input-group-prepend">
-                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True">
-                    <asp:ListItem Value="eq.eqptId" Selected="True">设备编号</asp:ListItem>
-                    <asp:ListItem Value="eq.eqptName">设备名称</asp:ListItem>
-                    <asp:ListItem Value="eq.purchaseDate">购入年份</asp:ListItem>
-                    <asp:ListItem Value="eq.location">存放位置</asp:ListItem>
-                    <asp:ListItem Value="em.name">设备负责人</asp:ListItem>
-                    <asp:ListItem Value="d.deptName">部门名称</asp:ListItem>
-                </asp:DropDownList>
-            </div>
-            <asp:TextBox ID="TextBox1" runat="server" class="form-control"></asp:TextBox>
-            <div class="input-group-append">
-                <asp:Button ID="Button2" runat="server" Text="搜索" OnClick="Button2_Click" class="btn btn-success"/>
-             </div>
-        </div>
+    
+    <div class="container text-center pb-2">
+        <h2><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></h2>
     </div>
-
     <div class="container">
         
         <table class="table-responsive table-bordered table-sm table-hover table-condensed">
