@@ -79,6 +79,7 @@
     <Content Include="App_Data\EMSdb_log.ldf">
       <DependentUpon>EMSdb.mdf</DependentUpon>
     </Content>
+    <Content Include="CreatDept.aspx" />
     <Content Include="CreatEmp.aspx" />
     <Content Include="CreatEqpt.aspx" />
     <Content Include="css\ems.css" />
@@ -112,6 +113,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreatDept.aspx.cs">
+      <DependentUpon>CreatDept.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreatDept.aspx.designer.cs">
+      <DependentUpon>CreatDept.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CreatEmp.aspx.cs">
       <DependentUpon>CreatEmp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
