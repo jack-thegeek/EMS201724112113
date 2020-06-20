@@ -33,22 +33,30 @@ namespace EMS201724112113
                     "and {0} like N'%{1}%';", accord, key);
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
+                if(dr.HasRows)
                 {
-                    EqptEntity eqptEntity = new EqptEntity();
-                    for (int i = 0; i < dr.FieldCount; i++)
+                    while (dr.Read())
                     {
-                        eqptEntity.EqptId = int.Parse(dr[0].ToString());
-                        eqptEntity.EqptName = dr[1].ToString();
-                        eqptEntity.Specifications = dr[2].ToString();
-                        eqptEntity.Picture = dr[3].ToString();
-                        eqptEntity.Price = dr[4].ToString();
-                        eqptEntity.PurchaseDate = Convert.ToDateTime(dr[5]).Year.ToString();
-                        eqptEntity.Location = dr[6].ToString();
-                        eqptEntity.Mgr = dr[8].ToString();
-                        eqptEntity.Num = int.Parse(dr[7].ToString());
+                        EqptEntity eqptEntity = new EqptEntity();
+                        for (int i = 0; i < dr.FieldCount; i++)
+                        {
+                            eqptEntity.EqptId = int.Parse(dr[0].ToString());
+                            eqptEntity.EqptName = dr[1].ToString();
+                            eqptEntity.Specifications = dr[2].ToString();
+                            eqptEntity.Picture = dr[3].ToString();
+                            eqptEntity.Price = dr[4].ToString();
+                            eqptEntity.PurchaseDate = Convert.ToDateTime(dr[5]).Year.ToString();
+                            eqptEntity.Location = dr[6].ToString();
+                            eqptEntity.Mgr = dr[8].ToString();
+                            eqptEntity.Num = int.Parse(dr[7].ToString());
+                        }
+                        eqptlist.Add(eqptEntity);
                     }
-                    eqptlist.Add(eqptEntity);
+                }
+                else
+                {
+                    result.Visible = false;
+                    Label1.Text = "查询" + key + "的结果为空！";
                 }
             }
         }

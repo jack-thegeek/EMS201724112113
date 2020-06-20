@@ -22,9 +22,7 @@ namespace EMS201724112113
         {
             using (SqlConnection conn = new SqlConnection(strConn))//使用using的方式系统自动关闭连接
             {
-                //打开数据库连接
                 conn.Open();
-                //设定SQL叙述
                 string sql = string.Format("select e.empId,e.password,e.name,e.phone,e.isMgr,d.deptName " +
                     "from department d, employee e " +
                     "where d.deptId = e.deptId");
@@ -45,6 +43,11 @@ namespace EMS201724112113
                     emplist.Add(empEntity);
                 }
             }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CreatEmp.aspx");
         }
     }
 }

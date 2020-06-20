@@ -25,7 +25,6 @@ namespace EMS201724112113
                 {
                     TextBox1.Text = eqptEntity.EqptName;
                     TextArea1.Value = eqptEntity.Specifications;
-                    
                     TextBox4.Text = eqptEntity.Price;
                     TextBox5.Text = eqptEntity.PurchaseDate;
                     TextBox6.Text = eqptEntity.Location;
@@ -44,9 +43,7 @@ namespace EMS201724112113
         {
             using (SqlConnection conn = new SqlConnection(strConn))//使用using的方式系统自动关闭连接
             {
-                //打开数据库连接
                 conn.Open();
-                //设定SQL叙述
                 string sql = string.Format("select eq.eqptId,eq.eqptName,eq.specifications,eq.picture," +
                     "eq.price,eq.PurchaseDate,eq.location,eq.num,em.name " +
                     "from department d, employee em, equipment eq " +

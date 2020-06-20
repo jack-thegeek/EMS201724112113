@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container mw-1344">
         
         <table class="table-responsive table-bordered table-sm table-hover table-condensed">
             <thead>

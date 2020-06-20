@@ -34,6 +34,36 @@ namespace EMS201724112113
                             }
                         }
                         break;
+                    case "emp":
+                        using (SqlConnection conn = new SqlConnection(strConn))
+                        {
+                            conn.Open();
+                            string sql = string.Format("delete from employee where empId = {0}", id);
+                            SqlCommand cmd = new SqlCommand(sql, conn);
+                            if (cmd.ExecuteNonQuery() == 0)
+                            {
+                            }
+                            else
+                            {
+                                Response.Redirect("Manage_emp.aspx");
+                            }
+                        }
+                        break;
+                    case "dept":
+                        using (SqlConnection conn = new SqlConnection(strConn))
+                        {
+                            conn.Open();
+                            string sql = string.Format("delete from department where deptId = '{0}'", id);
+                            SqlCommand cmd = new SqlCommand(sql, conn);
+                            if (cmd.ExecuteNonQuery() == 0)
+                            {
+                            }
+                            else
+                            {
+                                Response.Redirect("Manage_dept.aspx");
+                            }
+                        }
+                        break;
                 }
             }
             else

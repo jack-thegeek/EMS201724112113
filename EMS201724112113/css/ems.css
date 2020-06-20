@@ -2,14 +2,12 @@
 }
 
 
-@media (min-width: 1200px) {
-    .container, .container-lg, .container-md, .container-sm, .container-xl {
-        max-width: 1344px;
-    }
-}
 @media only screen and (min-width: 1068px) {
     .mw-480 {
         max-width: 480px;
+    }
+    .mw-1344 {
+        max-width: 1344px;
     }
 }
 .jumbotron {
