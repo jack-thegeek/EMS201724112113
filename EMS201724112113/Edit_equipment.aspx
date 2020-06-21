@@ -38,7 +38,9 @@
           <label for="TextBox7">负责人:</label>
             <asp:TextBox ID="TextBox7" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
             <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="empId"></asp:DropDownList>
-            <asp:SqlDataSource  ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT distinct em.empId, em.name FROM department AS d INNER JOIN equipment AS eq ON d.deptMgrId = eq.mgrId INNER JOIN employee AS em ON d.deptMgrId = em.empId"></asp:SqlDataSource>
+            <asp:SqlDataSource  ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT distinct name,empId
+from employee
+where isMgr = 1"></asp:SqlDataSource>
         </div>
         <div class="form-group">
           <label for="TextBox8">数量:</label>&nbsp;

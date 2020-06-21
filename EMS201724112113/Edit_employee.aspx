@@ -23,10 +23,8 @@
         <div class="form-group">
           <label for="txtDept">所属部门:</label>
             <asp:TextBox ID="txtDept" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
-            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="deptName" DataValueField="deptId"></asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="select distinct e.deptId,d.deptName
-from department d,employee e
-where d.deptId = e.deptId"></asp:SqlDataSource>
+            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="deptName" DataValueField="deptId" AutoPostBack="True"></asp:DropDownList>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [deptName], [deptId] FROM [department]"></asp:SqlDataSource>
         </div>
         <div class="form-group">
           <label for="txtIsMgr">是否是管理员:</label>

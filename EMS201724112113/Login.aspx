@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                             <label for="pwd">密码:</label><label for="usr"><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="请输入密码" ControlToValidate="pwd" ForeColor="Red"></asp:RequiredFieldValidator>
-                            </label>&nbsp;<asp:TextBox ID="pwd" runat="server" class="form-control"></asp:TextBox>
+                            </label>&nbsp;<asp:TextBox ID="pwd" runat="server" class="form-control" TextMode="Password"></asp:TextBox>
                         </div>
                     </div>
                     <div class="card-footer text-right">

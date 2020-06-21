@@ -15,10 +15,16 @@
     </asp:ContentPlaceHolder>
     <script>
         $(document).ready(function(){
-
             $('select').addClass("form-control");
-
         });
+        function del() {
+            var msg = "确定要删除吗？"; 
+            if (confirm(msg)==true){ 
+            return true; 
+            }else{ 
+            return false; 
+            } 
+        }
     </script>
 </head>
 

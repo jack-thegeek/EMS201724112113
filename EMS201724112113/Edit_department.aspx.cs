@@ -33,7 +33,7 @@ namespace EMS201724112113
                 conn.Open();
                 string sql = string.Format("select d.deptId,d.deptName,e.name " +
                     "from department d, employee e " +
-                    "where d.deptMgrId = d.deptMgrId and d.deptId = {0}", id);
+                    "where d.deptMgrId = e.empId and d.deptId = {0}", id);
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())

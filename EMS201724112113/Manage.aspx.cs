@@ -18,6 +18,21 @@ namespace EMS201724112113
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            if (Session["username"] != null)
+            {
+                if ((int)Session["isMgr"] == 1)//如果是管理员
+                {
+                }
+                else//如果不是管理员,隐藏部分菜单
+                {
+                    Button1.Visible = false;
+                }
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
             GetAll();
         }
 
@@ -26,10 +41,10 @@ namespace EMS201724112113
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 conn.Open();
-                string sql = string.Format("select distinct eq.eqptId,eq.eqptName,eq.specifications,eq.picture," +
-                    "eq.price,eq.PurchaseDate,eq.location,eq.num,em.name " +
-                    "from department d, employee em, equipment eq " +
-                    "where eq.mgrId = d.deptMgrId and d.deptMgrId = em.empId");
+                string sql = string.Format("select distinct eq.eqptId,eq.eqptName," +
+                    "eq.specifications,eq.picture,eq.price,eq.PurchaseDate,eq.location," +
+                    "eq.num,em.name from employee em, equipment eq " +
+                    "where eq.mgrId = em.empId");
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())

@@ -17,7 +17,7 @@ namespace EMS201724112113
         {
             string accord = Request["accord"];
             string key = Request["key"];
-            Label1.Text = "搜索" + key + "的结果：";
+            Label1.Text = "搜索“" + key + "”的结果：";
             GetAll(accord,key);
         }
 
@@ -28,9 +28,10 @@ namespace EMS201724112113
                 conn.Open();
                 string sql = string.Format("select distinct eq.eqptId,eq.eqptName,eq.specifications,eq.picture," +
                     "eq.price,eq.PurchaseDate,eq.location,eq.num,em.name " +
-                    "from department d, employee em, equipment eq " +
-                    "where eq.mgrId = d.deptMgrId and d.deptMgrId = em.empId " +
+                    "from department d, employee em, equipment eq where " +
+                    "eq.mgrId = em.empId and em.deptId = d.deptId " +
                     "and {0} like N'%{1}%';", accord, key);
+                Label2.Text = sql;
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
                 if(dr.HasRows)
@@ -56,7 +57,7 @@ namespace EMS201724112113
                 else
                 {
                     result.Visible = false;
-                    Label1.Text = "查询" + key + "的结果为空！";
+                    Label1.Text = "查询“" + key + "”的结果为空！";
                 }
             }
         }

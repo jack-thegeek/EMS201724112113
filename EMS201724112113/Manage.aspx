@@ -55,7 +55,7 @@
                     <td><%=eqptlist[i].Mgr%></td>
                     <td><a href="Edit_equipment.aspx?id=<%=eqptlist[i].EqptId%>" class="btn-sm btn-secondary">修改</a></td>
                     <td>
-                        <a href="Del.aspx?del=eqpt&id=<%=eqptlist[i].EqptId%>" class="btn-sm btn-warning">删除</a>
+                        <a href="Del.aspx?del=eqpt&id=<%=eqptlist[i].EqptId%>" class="btn-sm btn-warning" onclick="javascript:return del()">删除</a>
                     </td>
                 </tr>
                 <%}%>

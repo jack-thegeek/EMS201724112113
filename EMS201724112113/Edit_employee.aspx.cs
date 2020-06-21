@@ -63,7 +63,7 @@ namespace EMS201724112113
                 conn.Open();
                 string sql = string.Format("update employee set password = {0},name = N'{1}'," +
                     "phone = {2},isMgr = {3},deptId = {4} where empId = {5};", txtPwd.Text, txtName.Text, txtPhone.Text,
-                    DropDownList1.SelectedValue,DropDownList2.SelectedValue, txtId.Text);
+                    DropDownList2.SelectedValue,DropDownList1.SelectedValue, txtId.Text);
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 if (cmd.ExecuteNonQuery() == 0)
                 {

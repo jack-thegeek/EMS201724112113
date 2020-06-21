@@ -5,6 +5,7 @@
     
     <div class="container text-center pb-2">
         <h2><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></h2>
+        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
     </div>
     <div class="container" runat="server" id="result">
         <table class="table-responsive table-bordered table-sm table-hover table-condensed">
